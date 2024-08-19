@@ -1,0 +1,42 @@
+services:
+  orthanc:
+    build:
+      context: .
+      dockerfile: ./orthanc/Dockerfile
+      target: orthanc-girder
+      args:
+        - CONFIGFILE=./orthanc/orthanc_config.yml
+        - ORTHANC_VERSION=1.12.4
+        - ORTHANC_CONFIG=./orthanc/Configuration.json
+        #- ORTHANC_ROOT_URI=${ORTHANC_ROOT_URI}
+        - OHIF_ROOT_URI=${OHIF_ROOT_URI}
+        - DEPLOYMENT_HOST=${DEPLOYMENT_HOST}
+    ports:
+      - 8043:8042
+    volumes:
+      #- ./orthanc/authentication.py:/usr/local/share/orthanc/plugins/authentication.py:ro
+      - orthanc_volume:/var/lib/orthanc/db
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      - awesomme_network
+
+  nginx:
+    build:
+      context: ./nginx
+    ports:
+      - 81:80
+    depends_on:
+      - orthanc
+    networks:
+      - awesomme_network
+
+networks:
+  awesomme_network:
+
+volumes:
+  orthanc_volume:
+
+secrets:
+  git_secrets:
+    file: ./git.secrets # Should be removed -> use SSH instead

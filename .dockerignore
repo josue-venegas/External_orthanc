@@ -1,0 +1,37 @@
+
+# Output
+**/dist/
+**/build/
+
+# Dependencies
+**/node_modules/
+
+# Root
+**/Dockerfile
+**/dockerfile
+
+# Misc. Config
+**/.git
+**/.DS_Store
+**/.gitignore
+**/.vscode
+**/.circleci
+
+# Unnecessary things to pull into container
+**/.circleci/
+**/.github/
+**/.netlify/
+**/.scripts/
+**/.vscode/
+**/coverage/
+**/docs/
+**/testdata/
+
+
+# Python
+**/.pytest_cache
+**/.venv/
+**/venv/
+**/.ruff_cache/
+
+ohif/viewer
