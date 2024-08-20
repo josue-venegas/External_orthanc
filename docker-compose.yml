@@ -21,11 +21,12 @@ services:
     networks:
       - awesomme_network
 
-  nginx:
-    build:
-      context: ./nginx
+  apache:
+    image: httpd:latest
     ports:
       - 81:80
+    volumes:
+      - ./apache/httpd.conf:/usr/local/apache2/conf/httpd.conf:ro
     depends_on:
       - orthanc
     networks:
