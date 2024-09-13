@@ -1,9 +1,0 @@
-test
-*.log
-ohif/viewer
-girder/plugins
-apache/login/login.js
-apache/login/index.html
-apache/register/register.js
-apache/register/index.html
-**/node_modules
