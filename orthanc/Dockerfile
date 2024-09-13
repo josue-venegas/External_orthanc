@@ -51,10 +51,10 @@ RUN ./with_yaml_config.sh ./orthanc.config ./install_plugins.sh
 RUN rm ./install_python.sh ./install_plugins.sh ./with_yaml_config.sh ./orthanc.config
 
 # Set environment variables to replace in configuration file
-#ARG ORTHANC_ROOT_URI=/orthanc_external
+ARG ORTHANC_ROOT_URI=/orthanc_external
 ARG OHIF_ROOT_URI=/ohif
 ARG DEPLOYMENT_HOST=localhost
-#ENV ORTHANC_ROOT_URI=${ORTHANC_ROOT_URI}
+ENV ORTHANC_ROOT_URI=${ORTHANC_ROOT_URI}
 ENV OHIF_ROOT_URI=${OHIF_ROOT_URI}
 ENV DEPLOYMENT_HOST=${DEPLOYMENT_HOST}
 

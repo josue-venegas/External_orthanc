@@ -8,7 +8,7 @@ services:
         - CONFIGFILE=./orthanc/orthanc_config.yml
         - ORTHANC_VERSION=1.12.4
         - ORTHANC_CONFIG=./orthanc/Configuration.json
-        #- ORTHANC_ROOT_URI=${ORTHANC_ROOT_URI}
+        - ORTHANC_ROOT_URI=${ORTHANC_ROOT_URI}
         - OHIF_ROOT_URI=${OHIF_ROOT_URI}
         - DEPLOYMENT_HOST=${DEPLOYMENT_HOST}
     ports:
